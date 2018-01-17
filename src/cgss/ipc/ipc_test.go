@@ -16,8 +16,8 @@ func (server *EchoServer) Name() string {
 func TestIpc(t *testing.T) {
 	server := NewIpcServer(&EchoServer{})
 
-	client1 := NesIpcClient(server)
-	client2 := NesIpcClient(server)
+	client1 := NewIpcClient(server)
+	client2 := NewIpcClient(server)
 
 	resp1, _ := client1.Call("From client1", "test")
 	resp2, _ := client1.Call("From client2", "test")
